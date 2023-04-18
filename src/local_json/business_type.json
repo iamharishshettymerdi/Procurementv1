@@ -1,0 +1,28 @@
+[{
+
+    "name":"Manufacturer",
+    "description":"creation or production of goods with the help of equipment, labor, machines, tools, and chemical or biological processing or formulation. ",
+    "image":""
+   
+},
+{
+    "name":"Distributor",
+    "description":"person or company that buys products from a manufacturer and sells them for a profit to other businesses, stores, or customers",
+    "image":""
+},
+{
+    "name":"Retailer",
+    "description":"someone who owns or manages a store or website that sells goods to the public",
+    "image":""
+},
+{   
+    "name":"Service Provider",
+    "description":"A service provider (SP) is an organization that provides services, such as consulting, legal, real estate",
+    "image":""
+},
+{
+    "name":"Wholeseller",
+    "description":"a person or company that sells goods in large quantities to other companies or people who then sell them to the public",
+    "image":""
+}
+]
