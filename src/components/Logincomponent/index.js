@@ -14,18 +14,19 @@ import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import CloseIcon from '@mui/icons-material/Close';
+
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   pt: 2,
   px: 4,
   pb: 3,
+  width:'60%'
 };
 
 function ChildModal() {
@@ -61,15 +62,22 @@ function ChildModal() {
 
 export default function NestedModal(props) {
 
-    // console.log("rendering modal nested compo ",props.open)
+    const userdetails=React.useState({
+        fname:'',
+        lname:'',
+        email:'',
+        phone:'',
+        password:''
+    })
+
+    const userdetailssubmit=()=>{
+
+        console.log("submited")
+    }
+
     const [isOpen, setIsOpen] = React.useState(true);
- 
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
   const handleClose = () => {
-    setOpen(false);
+    setIsOpen(false);
   };
 
   const [showPassword, setShowPassword] = React.useState(false);
@@ -86,7 +94,6 @@ export default function NestedModal(props) {
 
   return (
     <div>
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       {isOpen}
       <Modal
         open={isOpen}
@@ -94,14 +101,13 @@ export default function NestedModal(props) {
         aria-labelledby="parent-modal-title"
         aria-describedby="parent-modal-description"
       >
-        <Box sx={{ ...style, width: 450 }}>
+        <Box sx={{ ...style,maxWidth:450}}>
             <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
                 <div style={{width: '100%',textAlign: 'end'}}>
                 <CloseIcon style={{cursor:'pointer'}} onClick={closemodalbtncliked}/>
                 </div>
-               
                 <div>
-
+                <form onSubmit={userdetailssubmit}>
                 <TextField id="standard-basic" label="First Name" variant="standard" sx={{margin:'5px 10px'}}/>
                 <TextField id="standard-basic" label="Last Name" variant="standard" sx={{margin:'5px 10px'}}/>
                 <TextField id="standard-basic" label="Email" variant="standard"  sx={{margin:'5px 10px'}}/>
@@ -133,6 +139,8 @@ export default function NestedModal(props) {
                         }
                     />
                     </FormControl>
+                </form>
+              
                 </div>
             </Box>
           <ChildModal />
