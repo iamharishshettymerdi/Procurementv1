@@ -92,7 +92,7 @@ const HomeComponent=()=>{
   )}
         </Box>
      </Container>
-     { open && ReactDOM.createPortal(<NestedModal modalopenstatus={(val)=>{console.log("val ",val);setOpen(val)}}/>,document.getElementById('loginpopup'))}
+     { open && ReactDOM.createPortal(<NestedModal modalopenstatus={(val)=>{setOpen(val)}}/>,document.getElementById('loginpopup'))}
      
     </>)
 }

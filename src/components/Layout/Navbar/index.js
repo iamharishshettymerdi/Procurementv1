@@ -33,10 +33,18 @@ function Navbar(props) {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-    console.log("clicked ")
-    props.openlogin(true)
+  const handleCloseUserMenu = (option) => {
+    console.log("option ",option)
+    switch(option?.setting){
+      case 'Register':
+        setAnchorElUser(null);
+        props.openlogin(true)
+        break;
+      default:
+        setAnchorElUser(null);
+        break;
+    }
+   
   };
 
   return (
@@ -152,7 +160,7 @@ function Navbar(props) {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={()=>handleCloseUserMenu({setting})}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

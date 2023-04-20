@@ -81,8 +81,6 @@ export default function NestedModal(props) {
   };
 
   const closemodalbtncliked=()=>{
-    console.log("btn cliked")
-    // setIsOpen(false);
     props.modalopenstatus(false);
   }
 
