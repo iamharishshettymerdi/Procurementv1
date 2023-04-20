@@ -10,9 +10,11 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import buztype from '../../local_json/business_type.json'
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import ReactDOM  from "react-dom";
 import axios  from "axios";
 import { styled } from '@mui/material/styles';
+import NestedModal from "../Logincomponent";
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -24,6 +26,13 @@ const Item = styled(Paper)(({ theme }) => ({
 const HomeComponent=()=>{
 
     const [products,setProduct]=useState([])
+    const [open,setOpen]=useState(false);
+    const [openModal, setOpenModal] = useState(false);
+
+    const handleOpenModal = () => {
+        setOpenModal(!openModal);
+    }
+    console.log("home index file renders")
     async function getProducts()
     {
         const productresponse=await axios.get("https://dummyjson.com/products")
@@ -39,7 +48,7 @@ const HomeComponent=()=>{
     return(<>
      <Container maxWidth="xl">
         <Box>
-        <Navbar/>
+        <Navbar openlogin={(val)=>{console.log("setopen value changed ");setOpen(val)}}/>
     <img src={mainimage} style={{maxWidth: '100%',
   height: '400px',width:'100%'}}/>
 
@@ -80,11 +89,11 @@ const HomeComponent=()=>{
       <Button size="small">View More</Button>
     </CardActions>
   </Card>
-
   )}
         </Box>
-
      </Container>
+     { open && ReactDOM.createPortal(<NestedModal toggleModal={handleOpenModal}/>,document.getElementById('loginpopup'))}
+     
     </>)
 }
 export default HomeComponent;
