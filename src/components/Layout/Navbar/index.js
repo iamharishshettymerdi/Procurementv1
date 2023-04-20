@@ -13,12 +13,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Home','Open Leads', 'Listing leads', 'Channel Leads','About us','Live Bidding','Track Order','Contact Us'];
+const pages = ['Home','Open Leads', 'Listing leads', 'Channel Leads','Live Bidding','Track Order','About us','Contact Us'];
 let settings = localStorage.getItem("login")===true?['Profile', 'Account', 'Dashboard', 'Logout']:["Login","Register"]
 
 
 
-function Navbar() {
+function Navbar(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -35,6 +35,8 @@ function Navbar() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+    console.log("clicked ")
+    props.openlogin(true)
   };
 
   return (
