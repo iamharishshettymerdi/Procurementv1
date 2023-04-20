@@ -14,7 +14,12 @@ import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import CloseIcon from '@mui/icons-material/Close';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 const style = {
   position: 'absolute',
   top: '50%',
@@ -41,7 +46,7 @@ function ChildModal() {
   return (
     <React.Fragment>
       <Button onClick={handleOpen}>Forgot Password</Button>
-      <Button variant="contained" color="success" sx={{margin: '0px 60px'}}>Submit</Button>
+     
       <Modal
         open={open}
         onClose={handleClose}
@@ -62,18 +67,45 @@ function ChildModal() {
 
 export default function NestedModal(props) {
 
-    const userdetails=React.useState({
+
+    const [userdetails,setuserdetails]=React.useState({
         fname:'',
         lname:'',
         email:'',
         phone:'',
         password:''
     })
+    const [open, setOpen] = React.useState(false);
+    const handleClick = () => {
+        setOpen(true);
+      };
+    const formonchange=(event)=>{
+        // console.log(event.target.id)
+        const elename=event.target.id;
+        const elevalue=event.target.value;
+        setuserdetails((prev)=>
+        {
+            return {...prev,[elename]:elevalue}
+        })
+
+        console.log(userdetails)
+    }
+
 
     const userdetailssubmit=()=>{
-
+       
         console.log("submited")
+        console.log(userdetails)
+        setOpen(true);
+        // closemodalbtncliked();
     }
+    const handleClosesuccess = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setOpen(false);
+      };
 
     const [isOpen, setIsOpen] = React.useState(true);
   const handleClose = () => {
@@ -107,18 +139,19 @@ export default function NestedModal(props) {
                 <CloseIcon style={{cursor:'pointer'}} onClick={closemodalbtncliked}/>
                 </div>
                 <div>
-                <form onSubmit={userdetailssubmit}>
-                <TextField id="standard-basic" label="First Name" variant="standard" sx={{margin:'5px 10px'}}/>
-                <TextField id="standard-basic" label="Last Name" variant="standard" sx={{margin:'5px 10px'}}/>
-                <TextField id="standard-basic" label="Email" variant="standard"  sx={{margin:'5px 10px'}}/>
-                <TextField id="standard-basic" label="Phone Number" variant="standard"  sx={{margin:'5px 10px'}}/>
+                <form >
+                <TextField id="fname" label="First Name" variant="standard" sx={{margin:'5px 10px'}} onChange={(event)=>formonchange(event)}/>
+                <TextField id="lname" label="Last Name" variant="standard" sx={{margin:'5px 10px'}} onChange={(event)=>formonchange(event)}/>
+                <TextField id="email" label="Email" variant="standard"  sx={{margin:'5px 10px'}} onChange={(event)=>formonchange(event)}/>
+                <TextField id="phone" label="Phone Number" variant="standard"  sx={{margin:'5px 10px'}} onChange={(event)=>formonchange(event)}/>
                 <TextField
-          id="standard-password-input"
+          id="password"
           label="Password"
           type="password"
           autoComplete="current-password"
           variant="standard"
           sx={{margin:'10px 10px'}}
+          onChange={(event)=>formonchange(event)}
         />
 
                     <FormControl sx={{ width: '25ch' }} variant="standard">
@@ -139,13 +172,20 @@ export default function NestedModal(props) {
                         }
                     />
                     </FormControl>
+                    
                 </form>
               
                 </div>
             </Box>
           <ChildModal />
+          <Button variant="contained" color="success" sx={{margin: '0px 60px'}} onClick={userdetailssubmit}>Submit</Button>
         </Box>
       </Modal>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClosesuccess}  anchorOrigin={{  vertical: 'top', horizontal: 'right' }}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Registration Success
+        </Alert>
+      </Snackbar>
     </div>
 
       );
