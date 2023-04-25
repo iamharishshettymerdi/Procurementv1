@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Home','Open Leads', 'Listing leads', 'Channel Leads','Live Bidding','Track Order','About us','Contact Us'];
 let settings = localStorage.getItem("login")===true?['Profile', 'Account', 'Dashboard', 'Logout']:["Login","Register"]
@@ -19,6 +20,7 @@ let settings = localStorage.getItem("login")===true?['Profile', 'Account', 'Dash
 
 
 function Navbar(props) {
+  const navigate=useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -30,7 +32,9 @@ function Navbar(props) {
   };
 
   const handleCloseNavMenu = () => {
+    
     setAnchorElNav(null);
+    navigate('/livebidding')
   };
 
   const handleCloseUserMenu = (option) => {
