@@ -33,7 +33,7 @@ const Livebidding=()=>{
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>
+          <Typography sx={{ width: '50%', flexShrink: 0 }}>
             {m.bidname}
           </Typography>
           <Typography sx={{ color: 'text.secondary' }}>Will end in : {m.enddate}</Typography>
