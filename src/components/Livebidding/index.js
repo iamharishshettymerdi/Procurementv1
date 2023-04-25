@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Sidebar from "../Layout/Sidebar";
 import { useNavigate } from "react-router-dom";
+import livebidlist from '../../local_json/livebidlist.json'
 const Livebidding=()=>{
     const navigate=useNavigate();
     const [open,setOpen]=useState(false);
@@ -23,25 +24,30 @@ const Livebidding=()=>{
     
       <Sidebar>
             {/* <button onClick={()=>navigate(-1)}>Back</button> */}
-        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+
+        {livebidlist.map((m,index)=><>
+            
+            <Accordion expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
           <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            General settings
+            {m.bidname}
           </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>I am an accordion</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>Will end in : {m.enddate}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
+          {m.biddescription}
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+        
+        </>)}
+        
+      {/* <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2bh-content"
@@ -94,7 +100,7 @@ const Livebidding=()=>{
             amet egestas eros, vitae egestas augue. Duis vel est augue.
           </Typography>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
       </Sidebar>
         { open && ReactDOM.createPortal(<NestedModal modalopenstatus={(val)=>{setOpen(val)}}/>,document.getElementById('loginpopup'))}
     </>

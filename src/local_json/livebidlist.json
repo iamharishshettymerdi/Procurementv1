@@ -1,0 +1,84 @@
+
+[
+        {
+            "bidname":"Belt conveyors",
+            "biddescription":"Belt conveyors are mechanical devices used to transport materials from one location to another. They consist of a belt that rotates around two or more pulleys, which are powered by motors or other sources of energy. Belt conveyors are commonly used in industries such as manufacturing, mining, food processing, and transportation",
+            "bidamount":"10000000",
+            "bidquantity":"200",
+            "sellername":"Indiamart",
+            "sellergst":"2AGYUUUYUYGUYUYIUGU",
+            "sellerplace":"Bangalore",
+            "enddate":"25/04/2023 06:05:15 PM"
+        },
+        {
+            "bidname":"CNC machines",
+            "biddescription":"Computer Numerical Control (CNC) machining is a manufacturing process in which pre-programmed computer software dictates the movement of factory tools and machinery. The process can be used to control a range of complex machinery, from grinders and lathes to mills and CNC routers",
+            "bidamount":"10000000",
+            "bidquantity":"200",
+            "sellername":"TEEO",
+            "sellergst":"2AGYUUUYUYGUYUYIUGU",
+            "sellerplace":"Bangalore",
+            "enddate":"25/04/2023 07:05:15 PM"
+        },
+        {
+            "bidname":"Pallet jacks",
+            "biddescription":"A pallet jack is the most basic form of forklift and is intended to move pallets in a warehouse or trailer. Pallet jacks are some of the most essential tools found in warehouses and are used for transporting small loads for short distances.",
+            "bidamount":"10000000",
+            "bidquantity":"200",
+            "sellername":"Indiamart",
+            "sellergst":"2AGYUUUYUYGUYUYIUGU",
+            "sellerplace":"Bangalore",
+            "enddate":"25/04/2023 08:05:15 PM"
+        },
+        {
+            "bidname":"Personal protective equipment (PPE)",
+            "biddescription":"Personal protective equipment, commonly referred to as “PPE”, is equipment worn to minimize exposure to a variety of hazards. Examples of PPE include such items as gloves, foot and eye protection, protective hearing devices (earplugs, muffs) hard hats, respirators and full body suits.",
+            "bidamount":"10000000",
+            "bidquantity":"200",
+            "sellername":"Indiamart",
+            "sellergst":"2AGYUUUYUYGUYUYIUGU",
+            "sellerplace":"Bangalore",
+            "enddate":"25/04/2023 09:05:15 PM"
+        },
+        {
+            "bidname":"Belt conveyors",
+            "biddescription":"Belt conveyors are mechanical devices used to transport materials from one location to another. They consist of a belt that rotates around two or more pulleys, which are powered by motors or other sources of energy. Belt conveyors are commonly used in industries such as manufacturing, mining, food processing, and transportation",
+            "bidamount":"10000000",
+            "bidquantity":"200",
+            "sellername":"Indiamart",
+            "sellergst":"2AGYUUUYUYGUYUYIUGU",
+            "sellerplace":"Bangalore",
+            "enddate":"25/04/2023 06:05:15 PM"
+        },
+        {
+            "bidname":"CNC machines",
+            "biddescription":"Computer Numerical Control (CNC) machining is a manufacturing process in which pre-programmed computer software dictates the movement of factory tools and machinery. The process can be used to control a range of complex machinery, from grinders and lathes to mills and CNC routers",
+            "bidamount":"10000000",
+            "bidquantity":"200",
+            "sellername":"TEEO",
+            "sellergst":"2AGYUUUYUYGUYUYIUGU",
+            "sellerplace":"Bangalore",
+            "enddate":"25/04/2023 07:05:15 PM"
+        },
+        {
+            "bidname":"Pallet jacks",
+            "biddescription":"A pallet jack is the most basic form of forklift and is intended to move pallets in a warehouse or trailer. Pallet jacks are some of the most essential tools found in warehouses and are used for transporting small loads for short distances.",
+            "bidamount":"10000000",
+            "bidquantity":"200",
+            "sellername":"Indiamart",
+            "sellergst":"2AGYUUUYUYGUYUYIUGU",
+            "sellerplace":"Bangalore",
+            "enddate":"25/04/2023 08:05:15 PM"
+        },
+        {
+            "bidname":"The pulley",
+            "biddescription":"A pulley is a wheel that carries a flexible rope, cord, cable, chain, or belt on its rim. Pulleys are used singly or in combination to transmit energy and motion.",
+            "bidamount":"10000000",
+            "bidquantity":"200",
+            "sellername":"Indiamart",
+            "sellergst":"2AGYUUUYUYGUYUYIUGU",
+            "sellerplace":"Bangalore",
+            "enddate":"25/04/2023 09:05:15 PM"
+        }
+    
+]
