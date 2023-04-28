@@ -31,10 +31,18 @@ function Navbar(props) {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page) => {
     
+    console.log("page ",page)
+
+    switch(page?.page){
+      case 'Live Bidding':
+        navigate('/livebidding')
+        break;
+      default: break;
+    }
     setAnchorElNav(null);
-    navigate('/livebidding')
+    
   };
 
   const handleCloseUserMenu = (option) => {
@@ -133,7 +141,7 @@ function Navbar(props) {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={()=>handleCloseNavMenu({page})}
                 sx={{ my: 2, display: 'block' ,width: '100%'}}
               >
                 {page}

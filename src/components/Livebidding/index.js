@@ -11,10 +11,19 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Sidebar from "../Layout/Sidebar";
 import { useNavigate } from "react-router-dom";
 import livebidlist from '../../local_json/livebidlist.json'
+import useBidtimer from "../custom hooks/livebidtime";
 const Livebidding=()=>{
     const navigate=useNavigate();
     const [open,setOpen]=useState(false);
     const [expanded, setExpanded] = useState(false);
+
+    const {count,increment}=useBidtimer()
+    console.log("count ",count)
+
+    const clickfun=()=>{
+      console.log("clicked ")
+      increment();
+    }
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -24,11 +33,11 @@ const Livebidding=()=>{
     
       <Sidebar>
             {/* <button onClick={()=>navigate(-1)}>Back</button> */}
-
         {livebidlist.map((m,index)=><>
             
-            <Accordion expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)}>
+            <Accordion expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)} sx={{display: 'initial'}}>
         <AccordionSummary
+
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
