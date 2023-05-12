@@ -83,7 +83,7 @@ const HomeComponent=()=>{
 
   {products.map((m,index)=>
     <Card key={index} sx={{ minWidth: 240 ,width:100,display: 'inline-block',margin:1,
-  backgroundColor: '#CCCCFF'
+    height: 200,backgroundColor: '#CCCCFF'
 }}>
     <CardContent>
         <img src={m.images[0]} height={100} width={200}/>
