@@ -15,13 +15,14 @@ import ReactDOM  from "react-dom";
 import axios  from "axios";
 import { styled } from '@mui/material/styles';
 import NestedModal from "../Logincomponent";
+
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(2),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 const HomeComponent=()=>{
 
@@ -51,45 +52,60 @@ const HomeComponent=()=>{
         <Navbar openlogin={(val)=>{console.log("setopen value changed ");setOpen(val)}}/>
     <img src={mainimage} style={{maxWidth: '100%',
   height: '400px',width:'100%'}}/>
+  
+  <Box >
+  <Grid container spacing={10}>
+    {buztype.map((m,index)=>
+      <Grid item xs={12} md>
+          <Item>
+            <Card key={index} sx={{ 
+              height: '100%',backgroundColor: '#CCCCFF'}}>
+              <CardContent>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  {m.name}
+                </Typography>
+                <Typography variant="body2">
+                  {m.description.slice(0,80)}{m.description.split(" ").length>9?'...':''}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Register</Button>
+              </CardActions>
+            </Card>
+          </Item>
+    </Grid>
+    )}
 
-{buztype.map((m,index)=>
-    <Card key={index} sx={{ minWidth: 240 ,width:100,display: 'inline-block',margin:1,
-    height: 200,backgroundColor: '#CCCCFF'
-}}>
-    <CardContent>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        {m.name}
-      </Typography>
-      <Typography variant="body2">
-        {m.description}
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Register</Button>
-    </CardActions>
-  </Card>
+</Grid>
+  </Box>
 
-)}
 <h3>Products</h3>
 
-  {products.map((m,index)=>
-    <Card key={index} sx={{ minWidth: 240 ,width:100,display: 'inline-block',margin:1,
-    height: 200,backgroundColor: '#CCCCFF'
-}}>
-    <CardContent>
-        <img src={m.images[0]} height={100} width={200}/>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        {m.title}
-      </Typography>
-      <Typography variant="body2">
-        {m.description}
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">View More</Button>
-    </CardActions>
-  </Card>
-  )}
+<Grid container spacing={2}>
+    {products.map((m,index)=>
+      <Grid item xs={6} md>
+          <Item>
+            <Card key={index} sx={{ 
+              height: '100%',backgroundColor: '#CCCCFF'}}>
+              <CardContent>
+                  <img src={m.images[0]} height={100} width={200}/>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  {m.title.slice(0,20)}
+                </Typography>
+                <Typography variant="body2">
+                  {m.description.slice(0,50)}
+                </Typography>
+              </CardContent>
+              <CardActions>
+              <Button size="small">View More</Button>
+              </CardActions>
+            </Card>
+          </Item>
+    </Grid>
+    )}
+
+</Grid>
+
         </Box>
      </Container>
      { open && ReactDOM.createPortal(<NestedModal modalopenstatus={(val)=>{setOpen(val)}}/>,document.getElementById('loginpopup'))}
