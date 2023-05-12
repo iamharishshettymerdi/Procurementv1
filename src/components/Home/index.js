@@ -81,30 +81,24 @@ const HomeComponent=()=>{
 
 <h3>Products</h3>
 
-<Grid container spacing={2}>
-    {products.map((m,index)=>
-      <Grid item xs={6} md>
-          <Item>
-            <Card key={index} sx={{ 
-              height: '100%',backgroundColor: '#CCCCFF'}}>
-              <CardContent>
-                  <img src={m.images[0]} height={100} width={200}/>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  {m.title.slice(0,20)}
-                </Typography>
-                <Typography variant="body2">
-                  {m.description.slice(0,50)}
-                </Typography>
-              </CardContent>
-              <CardActions>
-              <Button size="small">View More</Button>
-              </CardActions>
-            </Card>
-          </Item>
-    </Grid>
-    )}
-
-</Grid>
+  {products.map((m,index)=>
+    <Card key={index} sx={{ minWidth: 240 ,width:100,display: 'inline-block',margin:1,
+  backgroundColor: '#CCCCFF'
+}}>
+    <CardContent>
+        <img src={m.images[0]} height={100} width={200}/>
+      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        {m.title}
+      </Typography>
+      <Typography variant="body2">
+        {m.description.slice(0,80)}
+      </Typography>
+    </CardContent>
+    <CardActions>
+      <Button size="small">View More</Button>
+    </CardActions>
+  </Card>
+  )}
 
         </Box>
      </Container>
