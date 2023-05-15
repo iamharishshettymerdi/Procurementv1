@@ -46,6 +46,7 @@ const Livebidding=()=>{
             {m.bidname}
           </Typography>
           <Typography sx={{ color: 'text.secondary' }}>Will end in : {m.enddate}</Typography>
+          
         </AccordionSummary>
         <AccordionDetails>
           <Typography>

@@ -69,7 +69,7 @@ const HomeComponent=()=>{
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small">Register</Button>
+                <Button size="small" onClick={()=>setOpen(true)}>Register</Button>
               </CardActions>
             </Card>
           </Item>

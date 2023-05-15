@@ -45,7 +45,7 @@ function ChildModal() {
 
   return (
     <React.Fragment>
-      <Button onClick={handleOpen}>Forgot Password</Button>
+      <Button>Forgot Password</Button>
      
       <Modal
         open={open}
